@@ -23,7 +23,7 @@ const CommentForm = () => {
       <label htmlFor="checkbox">I agree to Terms and Conditions</label>
       <button
       disabled={!checked || !text}
-      onClick={() => { setText(""); setChecked(false); }}
+      onClick={() => { console.log("Comment submitted") }}
       >Comment</button>
     </div>
   );

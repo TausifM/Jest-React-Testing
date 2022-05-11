@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import CommentForm from "../components/CommentForm";
 
 test("Comment Form initial test",  () => {
@@ -20,8 +21,9 @@ test("After filling Data in the Comment Form", () => {
     const commentInput = screen.getByRole("textbox");
     const checkboxElem = screen.getByLabelText("i agree to terms and conditions",  {exact: false});
     const submitElem = screen.getByRole("button", {exact: false});
-    fireEvent.change(commentInput, {target: {value: "Hello World"}});
-
+    // their are two method for events testing in react 1. fireEvent(event, element) 2. userEvent.type(element, value)
+    //fireEvent.change(commentInput, {target: {value: "Hello World"}}); // this is for fire event testing
+    userEvent.type(commentInput, "Hello World"); // this is for userEvent testing
     //If Check box is clicked then Submit enabled
     fireEvent.click(checkboxElem);
     expect(submitElem).toBeEnabled()
