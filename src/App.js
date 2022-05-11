@@ -1,6 +1,12 @@
 import CommentForm from "./components/CommentForm";
+import CommentList from "./components/CommentList";
 
 function App() {
+  const comments = [
+    { id: 1, name: "John", comment: "Hello World" },
+    { id: 2, name: "Doe", comment: "Hello World" },
+    { id: 3, name: "Jimmy", comment: "Hello World" },
+  ];
   return (
     <div className="App" data-testid="myrootdiv">
       <h1>Testing of React</h1>
@@ -11,6 +17,7 @@ function App() {
         <li>item 2</li>
       </ul>
       <CommentForm />
+      <CommentList allcomments={comments} />
     </div>
   );
 }
