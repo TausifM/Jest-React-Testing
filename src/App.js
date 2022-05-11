@@ -1,8 +1,8 @@
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-testid="myrootdiv">
       <h1>Testing of React</h1>
-      <input type="text" placeholder="type name here" />
+      {/* <input type="text" placeholder="type name here" /> */}
       <button>test button</button>
       <ul>
         <li>item 1</li>
