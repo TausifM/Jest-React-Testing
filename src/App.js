@@ -1,3 +1,5 @@
+import CommentForm from "./components/CommentForm";
+
 function App() {
   return (
     <div className="App" data-testid="myrootdiv">
@@ -8,6 +10,7 @@ function App() {
         <li>item 1</li>
         <li>item 2</li>
       </ul>
+      <CommentForm />
     </div>
   );
 }
