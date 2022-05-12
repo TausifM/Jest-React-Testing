@@ -4,7 +4,7 @@ import CommentList from "./components/CommentList";
 function App() {
   const comments = [
     { id: 1, name: "John", comment: "Hello World" },
-    { id: 2, name: "Doe", comment: "Hello World" },
+    { id: 2, name: "Doe", comment: "Hello" },
     { id: 3, name: "Jimmy", comment: "Hello World" },
   ];
   return (
@@ -15,6 +15,7 @@ function App() {
       <ul>
         <li>item 1</li>
         <li>item 2</li>
+        <li><p>Hi</p></li>
       </ul>
       <CommentForm />
       <CommentList allcomments={comments} />
