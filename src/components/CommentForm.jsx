@@ -20,7 +20,7 @@ const CommentForm = ({ setComments }) => {
         type="checkbox"
         id="checkbox"
         defaultChecked={checked}
-        onChange={() => setChecked(!checked)}
+        onChange={() => setChecked(prev => !prev)}
       />
       <label htmlFor="checkbox">I agree to Terms and Conditions</label>
       <button disabled={!checked || !text} onClick={addComments}>
