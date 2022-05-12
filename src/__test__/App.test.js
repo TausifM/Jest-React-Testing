@@ -16,7 +16,7 @@ test("testing of app basics", () => {
 
 test("Comments get display at Initial Stage", async() => {
   render(<App/>);
-  const commentInput = screen.getAllByPlaceholderText("write comments here");
+  const commentInput = screen.getByPlaceholderText("write comments here");
   const checkboxElem = screen.getByLabelText("i agree to terms and conditions",  {exact: false});
   const submitElem = screen.getByRole("button", {name: "Comment", exact: false});
   await userEvent.type(commentInput, "Hello World");
@@ -24,22 +24,21 @@ test("Comments get display at Initial Stage", async() => {
   await userEvent.click(submitElem);
   const commentList = screen.getAllByRole("list");
   expect(commentList).toBe(commentList);
-  const commentListItem = screen.getAllByText("Hello World");
-  expect(commentListItem).toHaveLength(2);
+  const commentListItem = screen.getByText("Hello World", {exact: false});
+  expect(commentListItem).toBeInTheDocument();
 })
 test("Comments get display after submitting 2", () => {
   render(<App/>);
-  const commentInput = screen.getByRole("textbox");
+  const commentInput = screen.getByPlaceholderText("write comments here");
   const checkboxElem = screen.getByLabelText("i agree to terms and conditions",  {exact: false});
   const submitElem = screen.getByRole("button", {name: "Comment", exact: false});
   userEvent.type(commentInput, "Hello World");
   userEvent.click(checkboxElem);
   userEvent.click(submitElem);
+
   userEvent.type(commentInput, "awesome");
   userEvent.click(submitElem);
   const commentList = screen.getAllByRole("listitem");
-  expect(commentList.length).toBe(6); // li present in App.js and CommentList.js
-  const commentListItem = screen.getByText("Hello");
-  expect(commentListItem).toBeInTheDocument();
-  
+  expect(commentList.length).toBe(5) // li present in App.js and CommentList.js
+
 })

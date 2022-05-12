@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 
-const CommentForm = () => {
+const CommentForm = ({ setComments }) => {
   const [text, setText] = useState("");
   const [checked, setChecked] = useState(false);
+  const addComments = () => {
+    setComments((prev) => [...prev, { id: Date.now(), comment: text , name : checked ? "Anonymous" : "User" }]);
+    setText("");
+  };
   return (
     <div>
       <h2>Comment Form</h2>
@@ -16,15 +20,12 @@ const CommentForm = () => {
         type="checkbox"
         id="checkbox"
         defaultChecked={checked}
-        placeholder="write comments here"
-        value={text}
         onChange={() => setChecked(!checked)}
       />
       <label htmlFor="checkbox">I agree to Terms and Conditions</label>
-      <button
-      disabled={!checked || !text}
-      onClick={() => { console.log("Comment submitted") }}
-      >Comment</button>
+      <button disabled={!checked || !text} onClick={addComments}>
+        Comment
+      </button>
     </div>
   );
 };

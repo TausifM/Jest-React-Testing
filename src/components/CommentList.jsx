@@ -12,7 +12,7 @@ const CommentList = ({ allcomments }) => {
         {allcomments.map((item) => (
           <li key={item.id}>
             <p>{item.comment}</p>
-            <p>By : {item.name}</p>
+            <p>By :{item.name}</p>
           </li>
         ))}
       </ul>
